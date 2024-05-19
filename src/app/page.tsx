@@ -1,4 +1,4 @@
-import LogOut from "@/components/auth/LogOut";
+import LogOut from "../components/auth/LogOut";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 

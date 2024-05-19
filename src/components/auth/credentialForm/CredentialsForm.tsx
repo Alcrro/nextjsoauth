@@ -1,6 +1,6 @@
 "use client";
-import { credentialSignInHandler } from "@/components/buttons/credentialSignInHandler";
-import CredentialsLoginButton from "@/components/buttons/CredentialsLoginButton";
+import { credentialSignInHandler } from "../../../components/buttons/credentialSignInHandler";
+import CredentialsLoginButton from "../../../components/buttons/CredentialsLoginButton";
 import { signIn } from "next-auth/react";
 import { redirect, useRouter } from "next/navigation";
 import React, { useState } from "react";
