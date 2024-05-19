@@ -4,6 +4,12 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { redirect } from "next/navigation";
 
+type IUserProp = {
+  id: number;
+  username: string;
+  password: string;
+};
+
 export const options: NextAuthOptions = {
   providers: [
     GitHubProvider({
@@ -28,19 +34,23 @@ export const options: NextAuthOptions = {
           placeholder: "",
         },
       },
-      async authorize(credentials) {
+      // @ts-ignore
+      authorize: async (credentials: IUserProp) => {
         //This is where you need to retrieve user data
         // to verify with credentials
 
-        const user = { id: 0, name: "test", password: "test" };
-
-        if (
-          credentials?.username === user.name ||
-          credentials?.password === user.password
-        ) {
-          return user;
-        } else {
-          return null;
+        try {
+          const user = { id: 0, name: "test", password: "test" };
+          if (
+            credentials?.username === user.name ||
+            credentials?.password === user.password
+          ) {
+            return user;
+          } else {
+            return null;
+          }
+        } catch (error: any) {
+          throw new Error(error);
         }
       },
     }),
@@ -49,8 +59,3 @@ export const options: NextAuthOptions = {
     signIn: "/login",
   },
 };
-
-export async function loginIsRequiredServer() {
-  const session = await getServerSession(options);
-  if (!session) return redirect("/");
-}

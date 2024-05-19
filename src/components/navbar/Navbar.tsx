@@ -21,7 +21,7 @@ export default function Navbar() {
               ) : item === "login" ? (
                 <Login key={key} />
               ) : (
-                <li>
+                <li key={key}>
                   <Link href={`/${item}`}>
                     <span>
                       {item.charAt(0).toLocaleUpperCase() + item.slice(1)}
