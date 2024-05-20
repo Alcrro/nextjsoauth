@@ -1,4 +1,3 @@
-"use client";
 import { signIn } from "next-auth/react";
 
 export const credentialSignInHandler = async (
@@ -12,4 +11,5 @@ export const credentialSignInHandler = async (
     password: password,
     redirect: false,
   });
+  
 };

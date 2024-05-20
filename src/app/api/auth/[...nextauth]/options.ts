@@ -2,7 +2,7 @@ import { getServerSession, NextAuthOptions, Profile } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-
+import { redirect } from "next/navigation";
 
 type IUserProp = {
   id: number;
