@@ -7,7 +7,7 @@ export default async function Home() {
   const session = await getServerSession();
 
   return (
-    <main className="flex min-h-[80vh] flex-col items-center justify-between p-24">
+    <main className="flex min-h-[80vh] flex-col items-center justify-between p-24 ">
       <ul className="text-center">
         {arrayRoutes.map((items, key) => {
           return items === "login" && session ? (
