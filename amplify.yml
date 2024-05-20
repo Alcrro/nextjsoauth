@@ -6,8 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
-        - touch .env.local
-          - npm run build
+        - npm run build
   artifacts:
     baseDirectory: .next
     files:
